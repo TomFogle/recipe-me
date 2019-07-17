@@ -6,30 +6,19 @@ const attachToListElement = jsonArray => {
     itemEl = document.createElement("p");
     // itemEl.innerText = JSON.stringify(recipe);
 
-    const p = document.createElement("p");
-    p.innerHTML = `<a href="recipe-page.html?id=${
-      recipe.id
-    }">${recipe.recipeTitle + "\n" + recipe.username}</a>`;
-    p.style.textAlign = "center";
-    itemEl.appendChild(p);
+    const link = document.createElement("p");
+    link.style.textAlign = "center";
+    link.innerHTML = `<a href="recipe-page.html?id=${recipe.id}">${recipe.recipeTitle}</a>`;
+    itemEl.appendChild(link);
+
+    const user = document.createElement("p");
+    user.style.textAlign = "center";
+    user.innerText = "by: " + recipe.username;
+    itemEl.appendChild(user);
 
     listEl.appendChild(itemEl);
   });
 };
-
-/*
-const link = document.createElement("p");
-link.style.textAlign = "center";
-link.innerHTML = `<a href="/recipe-page">${recipe.recipeTitle}</a>`;
-itemEl.appendChild(link);
-
-const user = document.createElement("p");
-user.style.textAlign = "center";
-user.innerText = "by: " + recipe.username;
-itemEl.appendChild(user);
-
-listEl.appendChild(itemEl);
-*/
 
 // save list element to a variable
 let listEl = document.getElementById("list");
